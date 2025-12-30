@@ -52,7 +52,7 @@ export function ColcapChart({ data }: ResultsChartProps) {
     );
   }
   if (data.length === 1) {
-    // Mostrar barra si solo hay un dato
+    // Mostrar barra si solo hay un dato.
     return (
       <div className="w-full h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
