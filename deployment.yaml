@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: frontend:latest
-          imagePullPolicy: Never
+          image: esgore/notibolsa-frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
 ---
