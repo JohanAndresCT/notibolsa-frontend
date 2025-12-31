@@ -186,13 +186,15 @@ export default function App() {
               <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
                 <h2 className="text-slate-800 mb-6">Análisis Comparativo</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-blue-700 mb-2">Noticias</h3>
-                    <NoticiasChart data={data} />
-                  </div>
-                  <div>
-                    <h3 className="text-emerald-700 mb-2">COLCAP</h3>
-                    <ColcapChart data={data} />
+                  <div style={{ display: 'flex', gap: '32px', justifyContent: 'center' }}>
+                    <div>
+                      <h3 className="text-blue-700 mb-2">Noticias</h3>
+                      <NoticiasChart data={data} />
+                    </div>
+                    <div>
+                      <h3 className="text-emerald-700 mb-2">COLCAP</h3>
+                      <ColcapChart data={data} />
+                    </div>
                   </div>
                 </div>
               </div>

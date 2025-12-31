@@ -10,9 +10,9 @@ interface ResultsChartProps {
 export function NoticiasChart({ data }: ResultsChartProps) {
   console.log('Render NoticiasChart', data);
   if (data.length === 1) {
-    // Mostrar barra si solo hay un dato
+    console.log('[NoticiasChart] Renderizando BarChart, data:', data);
     return (
-      <div className="w-full h-[300px]">
+      <div style={{ width: 400, height: 300, background: '#fff', border: '1px solid #000' }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -25,9 +25,12 @@ export function NoticiasChart({ data }: ResultsChartProps) {
       </div>
     );
   }
+  if (data.length > 1) {
+    console.log('[NoticiasChart] Renderizando LineChart, data:', data);
+  }
   // Gráfico de líneas si hay más de un dato
   return (
-    <div className="w-full h-[300px]">
+    <div style={{ width: 400, height: 300, background: '#fff', border: '1px solid #000' }}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -44,6 +47,7 @@ export function NoticiasChart({ data }: ResultsChartProps) {
 export function ColcapChart({ data }: ResultsChartProps) {
   console.log('Render ColcapChart', data);
   if (data.length === 0) {
+    console.log('[ColcapChart] Sin datos para mostrar');
     // Mostrar mensaje si no hay datos
     return (
       <div className="w-full h-[300px] flex items-center justify-center text-gray-500">
@@ -52,9 +56,10 @@ export function ColcapChart({ data }: ResultsChartProps) {
     );
   }
   if (data.length === 1) {
+    console.log('[ColcapChart] Renderizando BarChart, data:', data);
     // Mostrar barra si solo hay un dato.
     return (
-      <div className="w-full h-[300px]">
+      <div style={{ width: 400, height: 300, background: '#fff', border: '1px solid #000' }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -67,5 +72,22 @@ export function ColcapChart({ data }: ResultsChartProps) {
       </div>
     );
   }
+  if (data.length > 1) {
+    console.log('[ColcapChart] Renderizando LineChart, data:', data);
+  }
+    // Gráfico de líneas si hay más de un dato
+    return (
+      <div style={{ width: 400, height: 300, background: '#fff', border: '1px solid #000' }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+            <XAxis dataKey="date" tick={{ fill: '#64748b', fontSize: 12 }} />
+            <YAxis tick={{ fill: '#64748b', fontSize: 12 }} label={{ value: 'COLCAP', angle: -90, position: 'insideLeft', fill: '#10b981' }} />
+            <Tooltip contentStyle={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '12px' }} labelStyle={{ color: '#1e293b' }} />
+            <Line type="monotone" dataKey="colcap" stroke="#10b981" strokeWidth={2} name="COLCAP" dot={{ fill: '#10b981', r: 10 }} activeDot={{ r: 15 }} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    );
  }
 
