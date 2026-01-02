@@ -1,7 +1,15 @@
-
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import type { DataPoint } from '../App';
-
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import type { DataPoint } from "../App";
 
 
 interface ResultsChartProps {
@@ -33,9 +41,9 @@ export function NoticiasChart({ data, linesCount }: ResultsChartProps) {
 }
 
 export function ColcapChart({ data }: ResultsChartProps) {
-  console.log('Render ColcapChart', data);
+  console.log("Render ColcapChart", data);
   if (data.length === 0) {
-    console.log('[ColcapChart] Sin datos para mostrar');
+    console.log("[ColcapChart] Sin datos para mostrar");
     // Mostrar mensaje si no hay datos
     return (
       <div className="w-full h-[300px] flex items-center justify-center text-gray-500">
@@ -44,16 +52,43 @@ export function ColcapChart({ data }: ResultsChartProps) {
     );
   }
   if (data.length === 1) {
-    console.log('[ColcapChart] Renderizando BarChart, data:', data);
+    console.log("[ColcapChart] Renderizando BarChart, data:", data);
     // Mostrar barra si solo hay un dato.
     return (
-      <div style={{ width: 400, height: 300, background: '#fff', border: '1px solid #000' }}>
+      <div
+        style={{
+          width: 400,
+          height: 300,
+          background: "#fff",
+          border: "1px solid #000",
+        }}
+      >
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <BarChart
+            data={data}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-            <XAxis dataKey="date" tick={{ fill: '#64748b', fontSize: 12 }} />
-            <YAxis domain={[0, data[0].colcap * 1.2 || 10]} tick={{ fill: '#64748b', fontSize: 12 }} label={{ value: 'COLCAP', angle: -90, position: 'insideLeft', fill: '#10b981' }} />
-            <Tooltip contentStyle={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '12px' }} labelStyle={{ color: '#1e293b' }} />
+            <XAxis dataKey="date" tick={{ fill: "#64748b", fontSize: 12 }} />
+            <YAxis
+              domain={[0, data[0].colcap * 1.2 || 10]}
+              tick={{ fill: "#64748b", fontSize: 12 }}
+              label={{
+                value: "COLCAP",
+                angle: -90,
+                position: "insideLeft",
+                fill: "#10b981",
+              }}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#fff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "8px",
+                padding: "12px",
+              }}
+              labelStyle={{ color: "#1e293b" }}
+            />
             <Bar dataKey="colcap" fill="#10b981" name="COLCAP" />
           </BarChart>
         </ResponsiveContainer>
@@ -61,7 +96,7 @@ export function ColcapChart({ data }: ResultsChartProps) {
     );
   }
   if (data.length > 1) {
-    console.log('[ColcapChart] Renderizando LineChart, data:', data);
+    console.log("[ColcapChart] Renderizando LineChart, data:", data);
   }
     // Gráfico de líneas si hay más de un dato
     return (

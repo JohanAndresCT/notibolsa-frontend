@@ -1,4 +1,4 @@
-import type { DataPoint } from '../App';
+import type { DataPoint } from "../App";
 
 interface ResultsTableProps {
   data: DataPoint[];
@@ -7,12 +7,27 @@ interface ResultsTableProps {
   urls?: string[];
 }
 
-export function ResultsTable({ data, newsCount = 0, linesCount = 0, urls = [] }: ResultsTableProps) {
+export function ResultsTable({
+  data,
+  newsCount = 0,
+  linesCount = 0,
+  urls = [],
+}: ResultsTableProps) {
   const formatDate = (dateStr: string) => {
-    const [year, month, day] = dateStr.split('-');
+    const [year, month, day] = dateStr.split("-");
     const months = [
-      'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
-      'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic",
     ];
     return `${day} ${months[parseInt(month) - 1]} ${year}`;
   };
@@ -33,10 +48,10 @@ export function ResultsTable({ data, newsCount = 0, linesCount = 0, urls = [] }:
           </thead>
           <tbody>
             {data.map((row, index) => (
-              <tr 
+              <tr
                 key={row.date}
                 className={`hover:bg-slate-50 transition-colors ${
-                  index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'
+                  index % 2 === 0 ? "bg-white" : "bg-slate-50/50"
                 }`}
               >
                 <td className="px-6 py-3 text-sm text-slate-700 border-b border-slate-100">
@@ -64,8 +79,15 @@ export function ResultsTable({ data, newsCount = 0, linesCount = 0, urls = [] }:
           <strong>URLs encontradas ({urls.length}):</strong>
           <ul className="list-disc ml-6 mt-1">
             {urls.map((url, idx) => (
-              <li key={url+idx}>
-                <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">{url}</a>
+              <li key={url + idx}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 underline"
+                >
+                  {url}
+                </a>
               </li>
             ))}
           </ul>
