@@ -55,10 +55,10 @@ export function ResultsTable({ data, newsCount = 0, linesCount = 0, urls = [] }:
       {/* Resumen y URLs */}
       <div className="mt-4 text-sm text-slate-700">
         <div className="mb-2">
-          <strong>Total de noticias recibidas:</strong> {newsCount}
+          <strong>Total de URLs mostradas:</strong> {urls.length}
         </div>
         <div className="mb-2">
-          <strong>Líneas recibidas:</strong> {linesCount}
+          <strong>Total de noticias recibidas:</strong> {linesCount}
         </div>
         <div className="mb-2">
           <strong>URLs encontradas ({urls.length}):</strong>

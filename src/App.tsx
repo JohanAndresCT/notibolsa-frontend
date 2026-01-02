@@ -181,7 +181,7 @@ export default function App() {
 
         {data.length > 0 && !loading && (
           <>
-            <pre style={{background:'#f3f4f6', color:'#1e293b', padding:'8px', borderRadius:'6px', marginBottom:'12px'}}>{JSON.stringify(data, null, 2)}</pre>
+            {/* <pre style={{background:'#f3f4f6', color:'#1e293b', padding:'8px', borderRadius:'6px', marginBottom:'12px'}}>{JSON.stringify(data, null, 2)}</pre> */}
             <div className="mt-12 space-y-8">
               <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
                 <h2 className="text-slate-800 mb-6">Análisis Comparativo</h2>
@@ -189,7 +189,7 @@ export default function App() {
                   <div style={{ display: 'flex', gap: '32px', justifyContent: 'center' }}>
                     <div>
                       <h3 className="text-blue-700 mb-2">Noticias</h3>
-                      <NoticiasChart data={data} />
+                      <NoticiasChart data={data} linesCount={linesCount} />
                     </div>
                     <div>
                       <h3 className="text-emerald-700 mb-2">COLCAP</h3>
